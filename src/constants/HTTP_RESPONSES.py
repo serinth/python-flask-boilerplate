@@ -24,5 +24,6 @@ UNAUTHORIZED_403 = {
 
 SUCCESS_200 = {
         'http_code': 200,
-        'code': 'Success'
+        'code': 'Success',
+        "message": "OK"
         }
