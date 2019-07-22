@@ -11,7 +11,7 @@ class BaseTestCase(unittest.TestCase):
         self.app = app.test_client()
 
     def tearDown(self):
-        print "teardown complete"
+        print("teardown complete")
 
 class TestHealthEndpoint(BaseTestCase):
     """Test Health Endpoint"""
@@ -21,7 +21,7 @@ class TestHealthEndpoint(BaseTestCase):
     def test_returns_status_ok(self):
         """Should return status OK and HTTP 200 when hitting health endpoint"""
         response = self.app.get('/health')
-        r = json.dumps(response.data)
+        r = json.dumps(str(response.data))
 
         self.assertEqual(200, response.status_code)
         self.assertTrue('"status":"OK"', r)
