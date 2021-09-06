@@ -3,7 +3,7 @@ import sys
 from flask import Flask
 from flask import jsonify
 from api.routes.health import health_api
-import constants.HTTP_RESPONSES
+from constants.HTTP_RESPONSES import *
 
 def create_app(config):
     app = Flask(__name__)
