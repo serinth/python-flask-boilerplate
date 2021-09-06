@@ -2,13 +2,17 @@
 
 Based on [Flask API Starter](https://github.com/cdagli/flask-api-starter)
 
+# Requirements
+Python 3.8+
+
 ```bash
-pip install -r requirements.txt
-python src/server.py
+pipenv install
+pipenv run python src/server.py
+curl localhost:8000/info
 ```
 
 Included Helm Chart for CI/CD.
-Default port is **8080** with hot reloading for DEV environment.
+Default port is **8000** with hot reloading for DEV environment.
 
 # Environment Variables
 |Variable|Description|Default|

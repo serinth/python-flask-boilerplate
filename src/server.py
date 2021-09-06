@@ -9,4 +9,4 @@ if __name__ == '__main__':
         is_prod = True
     else:
         app = create_app(DevelopmentConfig)
-    app.run(port=8080, host="0.0.0.0", use_reloader=is_prod)
+    app.run(port=8000, host="0.0.0.0", use_reloader=is_prod)

@@ -6,14 +6,8 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-click = "==7.0"
-itsdangerous = "==1.1.0"
-nose2 = "==0.6.5"
-six = "==1.12.0"
-Flask = "==0.12.3"
-Jinja2 = "==2.10.1"
-MarkupSafe = "==1.1.1"
-Werkzeug = "==0.15.5"
+nose2 = "*"
+flask = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8.10"
