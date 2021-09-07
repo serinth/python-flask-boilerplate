@@ -20,20 +20,20 @@ def create_app(config):
     @app.errorhandler(400)
     def bad_request(e):
         logging.error(e)
-        return jsonify(errorCode=BAD_REQUEST_400.code,
-                errorDescription=BAD_REQUEST_400.message)
+        return jsonify(errorCode=BAD_REQUEST_400['code'],
+                errorDescription=BAD_REQUEST_400['message'])
 
     @app.errorhandler(500)
     def server_error(e):
         logging.error(e)
-        return jsonify(errorCode=SERVER_ERROR_500.code,
-                errorDescription=SERVER_ERROR_500.message)
+        return jsonify(errorCode=SERVER_ERROR_500['code'],
+                errorDescription=SERVER_ERROR_500['message'])
 
     @app.errorhandler(404)
     def not_found(e):
         logging.error(e)
-        return jsonify(errorCode=SERVER_ERROR_404.code,
-                errorDescription=SERVER_ERROR_404.message)
+        return jsonify(errorCode=SERVER_ERROR_404['code'],
+                errorDescription=SERVER_ERROR_404['message'])
 
 
     logging.basicConfig(stream=sys.stdout,
