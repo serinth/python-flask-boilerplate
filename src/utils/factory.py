@@ -3,7 +3,7 @@ import sys
 from flask import Flask
 from flask import jsonify
 from api.routes.health import health_api
-from constants.HTTP_RESPONSES import *
+from constants.http_responses import *
 
 def create_app(config):
     app = Flask(__name__)
@@ -21,19 +21,19 @@ def create_app(config):
     def bad_request(e):
         logging.error(e)
         return jsonify(errorCode=BAD_REQUEST_400['code'],
-                errorDescription=BAD_REQUEST_400['message'])
+                errorDescription=BAD_REQUEST_400['message']), 400
 
     @app.errorhandler(500)
     def server_error(e):
         logging.error(e)
         return jsonify(errorCode=SERVER_ERROR_500['code'],
-                errorDescription=SERVER_ERROR_500['message'])
+                errorDescription=SERVER_ERROR_500['message']), 500
 
     @app.errorhandler(404)
     def not_found(e):
         logging.error(e)
         return jsonify(errorCode=SERVER_ERROR_404['code'],
-                errorDescription=SERVER_ERROR_404['message'])
+                errorDescription=SERVER_ERROR_404['message']), 404
 
 
     logging.basicConfig(stream=sys.stdout,
