@@ -22,5 +22,5 @@ Default port is **8000** with hot reloading for DEV environment.
 # Running Tests
 
 ```bash
-pipenv run nosetests
+pipenv run nose2
 ```

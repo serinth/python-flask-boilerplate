@@ -1,12 +1,12 @@
 import json
 import unittest
 from utils.factory import create_app
-from utils.config import DevelopmentConfig
+from utils.config import Config 
 
 class BaseTestCase(unittest.TestCase):
     """A base test case"""
     def setUp(self):
-        app = create_app(DevelopmentConfig)
+        app = create_app(Config())
         app.app_context().push()
         self.app = app.test_client()
 
