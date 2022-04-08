@@ -1,5 +1,4 @@
-from utils.factory import create_app
-from utils.config import Config, setConfig
+from config import Config, setConfig, create_app
 import os
 
 if __name__ == '__main__':
