@@ -1,7 +1,6 @@
 import json
 import unittest
-from utils.factory import create_app
-from utils.config import Config 
+from config import create_app, Config
 
 class BaseTestCase(unittest.TestCase):
     """A base test case"""
