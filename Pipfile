@@ -8,6 +8,7 @@ nose2 = "*"
 
 [packages]
 flask = "*"
+flask-restx = "*"
 
 [requires]
 python_version = "3.8"

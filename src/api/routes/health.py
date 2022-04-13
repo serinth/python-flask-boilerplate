@@ -1,10 +1,16 @@
-from flask import Blueprint, jsonify
-health_api = Blueprint('health_api', __name__)
+from flask import Blueprint
+from flask_restx import Namespace, Resource, fields
 
-@health_api.route('/health')
-def health():
-    return jsonify(status='OK')
+namespace = Namespace('metrics', description='Service metrics and health checks')
 
-@health_api.route('/info')
-def info():
-    return jsonify(version='v1.0.0')
+health_model = namespace.model('Health', {
+    'status': fields.String
+})
+
+blueprint = Blueprint('health', __name__)
+
+@namespace.route('/health')
+class Health(Resource):
+    @namespace.marshal_with(health_model)
+    def get(self):
+        return {'status': 'OK'}

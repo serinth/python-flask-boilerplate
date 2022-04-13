@@ -19,7 +19,7 @@ class TestHealthEndpoint(BaseTestCase):
 
     def test_returns_status_ok(self):
         """Should return status OK and HTTP 200 when hitting health endpoint"""
-        response = self.app.get('/health')
+        response = self.app.get('/metrics/health')
         r = json.dumps(str(response.data))
 
         self.assertEqual(200, response.status_code)

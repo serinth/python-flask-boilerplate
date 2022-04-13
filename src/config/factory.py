@@ -1,16 +1,30 @@
 import logging
 import sys
-from flask import Flask
+from flask import Flask, Blueprint
 from flask import jsonify
-from api.routes.health import health_api
+from api.routes.health import namespace as health_api_ns, blueprint as health_api
 from constants.http_responses import *
+from flask_restx import Api
+
 
 def create_app(config):
+    blueprint = Blueprint('docs', __name__)
+
+    api = Api(
+        blueprint,
+        title = 'Text Search Engine API',
+        version = '1.0.0',
+        description = 'All APIs related to Text Search for trademarks.'
+    )
+    
+    api.add_namespace(health_api_ns)
+
     app = Flask(__name__)
 
     app.config.from_object(config)
 
     app.register_blueprint(health_api)
+    app.register_blueprint(blueprint)
     # app.register_blueprint(<new_api_route>, url_prefix='/api')
 
     @app.after_request

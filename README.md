@@ -8,11 +8,15 @@ Python 3.8+
 ```bash
 pipenv install
 pipenv run python src/server.py
-curl localhost:8000/info
+curl localhost:8000/metrics/health
 ```
 
 Included Helm Chart for CI/CD.
 Default port is **8000** with hot reloading for DEV environment.
+
+# Swagger Documentation
+Swagger documentation is generated and provided by [flask-restx](https://flask-restx.readthedocs.io/)
+https://localhost:8000/
 
 # Environment Variables
 |Variable|Description|Default|
