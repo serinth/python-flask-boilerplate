@@ -16,7 +16,7 @@ Default port is **8000** with hot reloading for DEV environment.
 
 # Swagger Documentation
 Swagger documentation is generated and provided by [flask-restx](https://flask-restx.readthedocs.io/)
-https://localhost:8000/
+https://localhost:8000/docs
 
 # Environment Variables
 |Variable|Description|Default|

@@ -12,14 +12,21 @@ def create_app(config):
 
     api = Api(
         blueprint,
-        title = 'Text Search Engine API',
+        title = 'My API',
         version = '1.0.0',
-        description = 'All APIs related to Text Search for trademarks.'
+        description = 'My API description.',
+        doc='/docs'
     )
     
     api.add_namespace(health_api_ns)
 
     app = Flask(__name__)
+
+    # flask uses upper case letters for config, override them here:
+    app.config.update(
+        DEBUG=config.debug,
+        ENV='development' if config.debug == True else 'production'
+    )
 
     app.config.from_object(config)
 
