@@ -28,3 +28,23 @@ https://localhost:8000/docs
 ```bash
 pipenv run nose2
 ```
+
+## Building the Docker image
+
+1. Generate a requirements.txt from the lock file:
+```bash
+pipenv lock -r > requirements.txt
+```
+
+2. Build the docker image
+```bash
+docker build -t mydomain.com/myimage:latest .
+```
+
+3. Running
+```bash
+docker run \
+-e WORK_ENV="PROD" \
+-p 8000:8000 \
+mydomain.com/myimage:latest
+```

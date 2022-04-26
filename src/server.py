@@ -1,5 +1,6 @@
-from config import Config, setConfig, create_app
 import os
+from config import Config, setConfig, create_app
+from waitress import serve
 
 if __name__ == '__main__':
     is_prod = False
@@ -14,4 +15,4 @@ if __name__ == '__main__':
     
     setConfig(config)
     app = create_app(config)
-    app.run(port=8000, host="0.0.0.0", use_reloader=is_prod)
+    serve(app, port=8000, host="0.0.0.0")
