@@ -5,7 +5,7 @@ from flask import jsonify
 from api.routes.health import namespace as health_api_ns, blueprint as health_api
 from constants.http_responses import *
 from flask_restx import Api
-
+from flask_cors import CORS
 
 def create_app(config):
     blueprint = Blueprint('docs', __name__)
@@ -21,7 +21,8 @@ def create_app(config):
     api.add_namespace(health_api_ns)
 
     app = Flask(__name__)
-
+    CORS(app) # TODO: restrict this
+    
     # flask uses upper case letters for config, override them here:
     app.config.update(
         DEBUG=config.debug,

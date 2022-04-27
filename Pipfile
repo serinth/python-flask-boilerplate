@@ -10,6 +10,7 @@ nose2 = "*"
 flask = "*"
 flask-restx = "*"
 waitress = "*"
+flask-cors = "*"
 
 [requires]
 python_version = "3.8"
