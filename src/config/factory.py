@@ -31,9 +31,14 @@ def create_app(config):
 
     app.config.from_object(config)
 
+    #CORS needs to be applied per blueprint
+    CORS(health_api)
+
+    # app.register_blueprint(<new_api_route>, url_prefix='/api')
     app.register_blueprint(health_api)
     app.register_blueprint(blueprint)
-    # app.register_blueprint(<new_api_route>, url_prefix='/api')
+    
+    
 
     @app.after_request
     def add_header(response):
