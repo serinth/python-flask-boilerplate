@@ -62,9 +62,5 @@ def create_app(config):
         return jsonify(errorCode=SERVER_ERROR_404['code'],
                 errorDescription=SERVER_ERROR_404['message']), 404
 
-
-    logging.basicConfig(stream=sys.stdout,
-                        format='%(asctime)s|%(levelname)s|%(filename)s:%(lineno)s|%(message)s',
-                        level=logging.DEBUG)
     return app
 
