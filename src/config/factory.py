@@ -1,11 +1,11 @@
 import logging
-import sys
 from flask import Flask, Blueprint
 from flask import jsonify
 from api.routes.health import namespace as health_api_ns, blueprint as health_api
 from constants.http_responses import *
 from flask_restx import Api
 from flask_cors import CORS
+from config.log import get_logging_handler
 
 def create_app(config):
     blueprint = Blueprint('docs', __name__)
@@ -62,5 +62,8 @@ def create_app(config):
         return jsonify(errorCode=SERVER_ERROR_404['code'],
                 errorDescription=SERVER_ERROR_404['message']), 404
 
+    app.logger.addHandler(get_logging_handler())
+    app.logger.setLevel(logging.DEBUG if config.debug == True else logging.INFO)
+    
     return app
 
